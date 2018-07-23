@@ -41,11 +41,10 @@ snippet awith
 		${0:${VISUAL}}
 # New Class
 snippet cl
-	class ${1:ClassName}(${2:object}):
-		"""${3:docstring for $1}"""
-		def __init__(self, ${4:arg}):
-			${5:super($1, self).__init__()}
-			self.$4 = $4
+	class ${1:ClassName}:
+		"""${2:docstring for $1}"""
+		def __init__(self, ${3:arg}):
+			self.$3 = $3
 			${0}
 snippet cla
 	class ${1:class_name}:
@@ -150,7 +149,7 @@ snippet tryef Try/Except/Else/Finally
 	finally:
 		${0}
 # if __name__ == '__main__':
-snippet ifmain
+snippet main "python main function entry" b
 	if __name__ == '__main__':
 		${0:main()}
 # __magic__
@@ -190,11 +189,11 @@ snippet "
 	"""
 # assertions
 snippet a=
-	self.assertEqual(${0}, ${1})
+	self.assertEqual(${1}, ${2})
 # test function/method
-snippet test
-	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
-		${0}
+# snippet test
+# 	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
+# 		${0}
 # test case
 snippet testcase
 	class ${1:ExampleCase}(unittest.TestCase):
@@ -452,3 +451,25 @@ snippet numeric "methods for emulating a numeric type" b
 	def __coerce__(self, other):
 		${25:pass}
 	
+
+snippet imnp "import numpy" b
+	import numpy as np
+
+snippet implt "import pyplot" b
+	from matplotlib import pyplot as plt
+
+snippet plot "plot figure using matplotlib" b
+	plt.plot(${1:x}, ${2:y}, color=${3:"black"})
+	plt.xlabel("${4:x}")
+	plt.ylabel("${5:y}")
+	plt.legend("${6:legend}")
+	plt.title("${7:title}")
+	plt.show()
+
+snippet bar "bar figure using matplotlib" b
+	plt.bar(${1:x}, ${2:y}, width=${3:0.8}, color=${4:"black"})
+	plt.xlabel("${5:x}")
+	plt.ylabel("${6:y}")
+	plt.legend("${7:legend}")
+	plt.title("${8:title}")
+	plt.show()
